@@ -140,6 +140,7 @@ function ejercicio8() {
     var media_impares = 0;
     var num_impares = 0;
     var sum_impares = 0;
+    var num_ceros = 0;
     
     while (num_imputs < 10) {
 
@@ -150,6 +151,12 @@ function ejercicio8() {
             num_pares++;
             sum_pares = sum_pares + actual_num;
             media_pares = sum_pares / num_pares;
+
+        } 
+        
+        if (actual_num == 0) {
+
+            num_ceros++;
 
         } else {
 
@@ -165,6 +172,7 @@ function ejercicio8() {
 
     console.log(`Media pares: ${media_pares}`);
     console.log(`Media impares: ${media_impares}`);
+    console.log(`Número de ceros: ${num_ceros}`);
 
 }
 
