@@ -9,8 +9,6 @@ function ejercicio1() {
 
     alert('La suma de los dos números introducidos es ' + (num1+num2));
 
-    /* console.log(num1+num2); */
-
 }
 
 
@@ -67,5 +65,131 @@ function ejercicio4() {
 
     if (num < 0) { alert(`Has ingresado un número negativo. ¡Proceso finalizado! Media de los números introducidos: ${media}`); }
 
+}
 
-}    
+/* EJERCICIO 5 */
+
+/* Escribir todos los números del 100 al 0 de 7 en 7 */
+
+function ejercicio5() {
+
+    var num = 100;
+
+    while (num >= 0) {
+
+        console.log(num);
+        num = num - 7;
+
+    }
+
+}
+
+/* EJERCICIO 6 */
+
+/* Diseñar un programa que muestre el producto de los 10 primeros números impares */
+
+function ejercicio6() {
+
+    var product = 1;
+    var actual_num = 1; 
+    var total_nums = 0;
+
+    while (total_nums < 10) { 
+
+        product *= actual_num;
+        total_nums++;
+        actual_num += 2;  
+
+    }
+
+    console.log(product);
+    
+}
+
+/* EJERCICIO 7 */
+
+/* Pedir un número y calcular su factorial */
+
+function ejercicio7() {
+
+    var factorial = 1;
+    var num_input = parseInt(prompt('Introduce un número: '));
+    var actual_num = num_input; 
+
+    while (actual_num >= 1) { 
+
+        factorial *= actual_num;
+        actual_num--; 
+
+    }
+
+    console.log(factorial);
+
+}
+
+/* EJERCICIO 8 */
+
+/* Pedir 10 números. Mostrar la media de los números positivos, la media de los números negativos y la cantidad de ceros */
+
+function ejercicio8() {
+
+    var num_imputs = 0;
+    var num_pares = 0;
+    var sum_pares = 0;
+    var media_pares = 0;
+    var media_impares = 0;
+    var num_impares = 0;
+    var sum_impares = 0;
+    
+    while (num_imputs < 10) {
+
+        var actual_num = parseInt(prompt('Introduce un número:'));
+
+        if (actual_num % 2 == 0) {
+
+            num_pares++;
+            sum_pares = sum_pares + actual_num;
+            media_pares = sum_pares / num_pares;
+
+        } else {
+
+            num_impares++;
+            sum_impares = sum_impares + actual_num;
+            media_impares = sum_impares / num_impares;
+
+        }
+
+        num_imputs++;
+
+    }
+
+    console.log(`Media pares: ${media_pares}`);
+    console.log(`Media impares: ${media_impares}`);
+
+}
+
+/* EJERCICIO 9 */
+
+/* Pedir 10 sueldos. Mostrar su suma y cuantos hay mayores de 1000€ */
+
+function ejercicio9() {
+
+    var num_imputs = 0;
+    var num_superiores = 0;
+    var sum = 0;
+
+    while (num_imputs < 10) {
+
+        var actual_num = parseInt(prompt('Introduce un número:'));
+
+        if (actual_num > 1000) { num_superiores++; }
+
+        sum = sum + actual_num;
+        num_imputs++;
+
+    }
+
+    console.log(`Suma total: ${sum}`);
+    console.log(`Mayores que 1000: ${num_superiores}`);
+
+}
