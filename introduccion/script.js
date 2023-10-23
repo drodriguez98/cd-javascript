@@ -321,6 +321,17 @@ function ejercicio13() {
 
 function ejercicio14() {
 
+    var num_int = parseInt(prompt('Introduce un número entero con más de un dígito:'));
+    var num_txt = num_int.toString(); 
+    var result = 0;
+
+    for (var i = 0; i < num_txt.length; i++) {
+
+        var digit = parseInt(num_txt.charAt(i)); 
+        
+        result += digit;
+    }
     
+    console.log("La suma de los dígitos de " + num_int + " es " + result);
 
 }
