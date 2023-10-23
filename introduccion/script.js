@@ -360,31 +360,82 @@ function ejercicio14() {
 
 function ejercicio15() {
 
-    var dni_numbers = [];
+    // Crea los arrays.
+
+    var dni_number = [];
     var dni_letters = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
   
     // Recoge 8 números introducidos por el usuario y los añade al array.
     
     for (var i = 1; i <= 8; i++) {
 
-      var num = parseInt(prompt('Introduce el dígito ' + i + ' del DNI:'));
+      var num_input = parseInt(prompt('Introduce el dígito ' + i + ' del DNI:'));
   
-      if (isNaN(num) || num < 0 || num > 9) { alert('Por favor, ingresa un dígito válido (0-9).'); }
+      if (isNaN(num_input)) { alert('Por favor, ingresa un dígito válido (0-9).'); }
   
-      dni_numbers.push(num);
+      dni_number.push(num_input);
 
     }
 
-    // Crea un entero con todos los números para calcular el resto dividiéndolo entre 23.
-  
-    var num = parseInt(dni_numbers.join(''));
+    // Combina los números del array (sin espacios) para calcular el resto dividiéndolo entre 23.
+    
+    var num_int = parseInt(dni_number.join(''));
 
-    var rest = num % 23;
+    var rest = num_int % 23;
 
-    // Recoge la letra en la posición del resto y la une al array para mostrar el DNI completo.
+    // Recoge la letra en la posición del resto y la une al array del dni para mostrar el DNI completo.
 
     var letter = dni_letters[rest];
   
-    console.log('El DNI completo es ' + dni_numbers.join('') + letter);
+    console.log('El DNI completo es ' + dni_number.join('') + letter);
+
+}
+
+/* EJERCICIO 16 */
+
+/*  Solicitar al usuario el total de la cuenta y el porcentaje de propina deseado, despues mostrar por pantalla la propina en euros y el total (propina incluida) */
+
+function ejercicio16() {
+
+    var account = parseInt(prompt('Introduce el total de la cuenta:'));
+    var percentage = parseInt(prompt('Introduce el porcentaje de propina a aplicar:'));
+
+    var tip = ((percentage / 100) * account);
+    var total_account = account + tip;
+
+    document.write('Aplicando un porcentaje del ' + percentage + ', la cantidad de propina a sumar es ' + tip + '. Por lo tanto, la cantidad total a pagar (propina incluida) es ' + total_account + '.');
+
+}
+
+/* EJERCICIO 17 */
+
+/* Hacer un juego de adivinanza. Generar un numero entre 0 y 100 y pedir al usuario que intente adivinarlo. Si lo acierta mostrar un mensaje de felicidades y sino indicar si el numero es mayor o menor comparándolo con el introducido por el usuario. */
+
+function ejercicio17() {
+
+    var num_random = Math.floor(Math.random() * 101); 
+    
+    console.log('Intenta adivinar el número oculto entre 0 y 100');
+    
+    while (true) {
+
+        var num_input = parseInt(prompt('Introduce un número: '));
+        
+        if (num_input == num_random) {
+
+            console.log('¡Felicidades! Has ganado');
+            break;
+
+        } else if (num_input < num_random) {
+
+            console.log('El número que buscas es mayor');
+
+        } else {
+
+            console.log('El número que buscas es menor');
+
+        }
+
+    }
 
 }
