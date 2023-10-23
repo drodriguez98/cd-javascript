@@ -279,7 +279,6 @@ function esPrimo(num) {
 function ejercicio12() {
 
     var num = parseInt(prompt('Introduce un número:'));
-
     var contador = 1;
 
     while (contador <= num) {
@@ -293,5 +292,35 @@ function ejercicio12() {
         contador++;
 
     }
+
+}
+
+/* EJERCICIO 13 */
+
+/* Pedir un número y mostrar su tabla de multiplicar del 1 al 10. */
+
+function ejercicio13() {
+
+    var multplicador = 0;
+    var num = parseInt(prompt('Introduce un número:'));
+    var resultado;
+
+    while (multplicador <= 10) {
+
+        resultado = num * multplicador;
+        console.log(`${num} * ${multplicador} = ${resultado}`)
+        multplicador++;
+
+    }
+
+}
+
+/* EJERCICIO 14 */
+
+/* Calcular la suma de los dígitos de un número entero */ 
+
+function ejercicio14() {
+
+    
 
 }
