@@ -113,7 +113,10 @@ function ejercicio6() {
 function ejercicio7() {
 
     var factorial = 1;
+
     var num_input = parseInt(prompt('Introduce un número: '));
+    if(isNaN(num_input)) { alert("Debes ingresar un número válido"); }
+
     var actual_num = num_input; 
 
     while (actual_num >= 1) { 
@@ -145,6 +148,8 @@ function ejercicio8() {
     while (num_imputs < 10) {
 
         var actual_num = parseInt(prompt('Introduce un número:'));
+
+        if(isNaN(actual_num)) { alert("Debes ingresar un número válido"); }
 
         if (actual_num >= 0) {
 
@@ -190,6 +195,8 @@ function ejercicio9() {
 
         var actual_num = parseInt(prompt('Introduce un número:'));
 
+        if(isNaN(actual_num)) { alert("Debes ingresar un número válido"); }
+
         if (actual_num > 1000) { num_superiores++; }
 
         sum = sum + actual_num;
@@ -219,7 +226,12 @@ function ejercicio10() {
     while (num_imputs < 5) {
 
         var edad = parseInt(prompt('Introduce la edad de un alumno:'));
+
+        if(isNaN(edad)) { alert("Debes ingresar un número válido"); }
+
         var altura = parseInt(prompt('Introduce la altura de un alumno:'));
+
+        if(isNaN(altura)) { alert("Debes ingresar un número válido"); }
 
         if (edad >= 18) { num_mayores_18++; }
 
@@ -250,6 +262,8 @@ function ejercicio11() {
 
     var num = parseInt(prompt('Introduce un número:'));
 
+    if(isNaN(num)) { alert("Debes ingresar un número válido"); }
+
     if (esPrimo(num)) {
 
         console.log(`${num} es un número primo`);
@@ -279,6 +293,9 @@ function esPrimo(num) {
 function ejercicio12() {
 
     var num = parseInt(prompt('Introduce un número:'));
+
+    if(isNaN(num)) { alert("Debes ingresar un número válido"); }
+
     var contador = 1;
 
     while (contador <= num) {
@@ -303,12 +320,16 @@ function ejercicio13() {
 
     var multplicador = 0;
     var num = parseInt(prompt('Introduce un número:'));
+
+    if(isNaN(num)) { alert("Debes ingresar un número válido"); }
+
     var resultado;
 
     while (multplicador <= 10) {
 
         resultado = num * multplicador;
         console.log(`${num} * ${multplicador} = ${resultado}`)
+        
         multplicador++;
 
     }
@@ -322,16 +343,19 @@ function ejercicio13() {
 function ejercicio14() {
 
     var num_int = parseInt(prompt('Introduce un número entero con más de un dígito:'));
-    var num_txt = num_int.toString(); 
-    var result = 0;
 
-    for (var i = 0; i < num_txt.length; i++) {
+    if(isNaN(num_int)) { alert("Debes ingresar un número válido"); }
 
-        var digit = parseInt(num_txt.charAt(i)); 
-        
-        result += digit;
-    }
-    
-    console.log("La suma de los dígitos de " + num_int + " es " + result);
+    // Convierte número introducido a cadena de texto, separa cada digito de la cadena y los mete en un array
+
+    var digits = num_int.toString().split('');
+
+    var sum = 0;
+
+    // Recorre el array y suma cada dígito a la suma total 
+
+    for (var i = 0; i < digits.length; i++) { sum += parseInt(digits[i]); }
+
+    console.log("La suma de los dígitos de " + num_int + " es " + sum);
 
 }
