@@ -115,6 +115,7 @@ function ejercicio7() {
     var factorial = 1;
 
     var num_input = parseInt(prompt('Introduce un número: '));
+
     if(isNaN(num_input)) { alert("Debes ingresar un número válido"); }
 
     var actual_num = num_input; 
@@ -148,8 +149,6 @@ function ejercicio8() {
     while (num_imputs < 10) {
 
         var actual_num = parseInt(prompt('Introduce un número:'));
-
-        if(isNaN(actual_num)) { alert("Debes ingresar un número válido"); }
 
         if (actual_num >= 0) {
 
@@ -195,8 +194,6 @@ function ejercicio9() {
 
         var actual_num = parseInt(prompt('Introduce un número:'));
 
-        if(isNaN(actual_num)) { alert("Debes ingresar un número válido"); }
-
         if (actual_num > 1000) { num_superiores++; }
 
         sum = sum + actual_num;
@@ -227,11 +224,7 @@ function ejercicio10() {
 
         var edad = parseInt(prompt('Introduce la edad de un alumno:'));
 
-        if(isNaN(edad)) { alert("Debes ingresar un número válido"); }
-
         var altura = parseInt(prompt('Introduce la altura de un alumno:'));
-
-        if(isNaN(altura)) { alert("Debes ingresar un número válido"); }
 
         if (edad >= 18) { num_mayores_18++; }
 
@@ -319,6 +312,7 @@ function ejercicio12() {
 function ejercicio13() {
 
     var multplicador = 0;
+
     var num = parseInt(prompt('Introduce un número:'));
 
     if(isNaN(num)) { alert("Debes ingresar un número válido"); }
@@ -329,7 +323,7 @@ function ejercicio13() {
 
         resultado = num * multplicador;
         console.log(`${num} * ${multplicador} = ${resultado}`)
-        
+
         multplicador++;
 
     }
@@ -357,5 +351,40 @@ function ejercicio14() {
     for (var i = 0; i < digits.length; i++) { sum += parseInt(digits[i]); }
 
     console.log("La suma de los dígitos de " + num_int + " es " + sum);
+
+}
+
+/* EJERCICIO 15 */
+
+/* Calcular la letra del DNI. Los 8 números deben introducirse de uno en uno */
+
+function ejercicio15() {
+
+    var dni_numbers = [];
+    var dni_letters = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+  
+    // Recoge 8 números introducidos por el usuario y los añade al array.
+    
+    for (var i = 1; i <= 8; i++) {
+
+      var num = parseInt(prompt('Introduce el dígito ' + i + ' del DNI:'));
+  
+      if (isNaN(num) || num < 0 || num > 9) { alert('Por favor, ingresa un dígito válido (0-9).'); }
+  
+      dni_numbers.push(num);
+
+    }
+
+    // Crea un entero con todos los números para calcular el resto dividiéndolo entre 23.
+  
+    var num = parseInt(dni_numbers.join(''));
+
+    var rest = num % 23;
+
+    // Recoge la letra en la posición del resto y la une al array para mostrar el DNI completo.
+
+    var letter = dni_letters[rest];
+  
+    console.log('El DNI completo es ' + dni_numbers.join('') + letter);
 
 }
