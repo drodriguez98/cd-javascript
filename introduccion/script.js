@@ -377,13 +377,13 @@ function ejercicio15() {
 
     }
 
-    // Combina los números del array (sin espacios) para calcular el resto dividiéndolo entre 23.
+    // Combina los números del array (sin espacios) para calcular el resto dividiéndolo entre 23
     
     var num_int = parseInt(dni_number.join(''));
 
     var rest = num_int % 23;
 
-    // Recoge la letra en la posición del resto y la une al array del dni para mostrar el DNI completo.
+    // Recoge la letra en la posición del resto y la une al array del dni para mostrar el DNI completo
 
     var letter = dni_letters[rest];
   
@@ -409,7 +409,7 @@ function ejercicio16() {
 
 /* EJERCICIO 17 */
 
-/* Hacer un juego de adivinanza. Generar un numero entre 0 y 100 y pedir al usuario que intente adivinarlo. Si lo acierta mostrar un mensaje de felicidades y sino indicar si el numero es mayor o menor comparándolo con el introducido por el usuario. */
+/* Hacer un juego de adivinanza. Generar un numero entre 0 y 100 y pedir al usuario que intente adivinarlo. Si lo acierta mostrar un mensaje de felicidades y sino indicar si el numero es mayor o menor comparándolo con el introducido por el usuario */
 
 function ejercicio17() {
 
@@ -437,5 +437,175 @@ function ejercicio17() {
         }
 
     }
+
+}
+
+/* EJERCICIO 18 */
+
+/*
+
+Eliminar una palabra:
+
+    ◦ Pedir al usuario que ingrese una frase y una palabra a eliminar
+    ◦ Eliminar todas las apariciones de la palabra en la frase utilizando el método split, join y indexOf
+    ◦ Mostrar la frase resultante sin la palabra eliminada
+
+*/
+
+function ejercicio18() {
+
+    var phrase_str = prompt('Introduce una frase: ');
+    var word_str = prompt('Introduce la palabra que deseas eliminar: ');
+
+    console.log('Has introducido: ' + phrase_str);
+    console.log('Deseas borrar la palabra: ' + word_str);
+
+    // Divide la frase en un arrary de palabras
+
+    var phrase_arr = phrase_str.split(' ');
+
+    // Devuelve el index de las palabras a borrar si hay  palabras que coincidan y -1 si no las hay
+
+    var index_to_delete = phrase_arr.indexOf(word_str);
+
+    // El bucle se ejecuta mientras alguna palabra coincida con la introducida y las elimina
+
+    while (index_to_delete !== -1) {
+
+        phrase_arr.splice(index_to_delete, 1);
+        index_to_delete = phrase_arr.indexOf(word_str);
+
+    }
+
+    // Une las palabras que no se han borrado en un nuevo array / frase
+
+    var new_phrase = phrase_arr.join(' ');
+
+    console.log('Frase resultante: ' + new_phrase);
+
+}
+
+/* EJERCICIO 19 */
+
+/* Pedir al usuario que ingrese una lista de elementos separados por comas. Devolver una lista sin elementos duplicados */
+
+function ejercicio19() {
+
+    var phrase_str = prompt('Introduce varias palabras separadas por comas: ');
+
+    var phrase_arr = phrase_str.split(',');
+
+    // Array que contendrá las palabras que no se repitan
+
+    var unique_words = [];
+
+    // Recorre el array de palabras comprobando si la palabra no está en el array de palabras únicas
+
+    for (var i = 0; i < phrase_arr.length; i++) {
+
+        var word = phrase_arr[i];
+
+        if (unique_words.indexOf(word) === -1) { unique_words.push(word); }
+
+    }
+
+    console.log('Palabras sin elementos duplicados: ' + unique_words.join(', '));
+
+}
+
+/*
+
+function ejercicio19() {
+
+    var phrase_str = prompt('Introduce varias palabras separadas por comas: ');
+
+    var phrase_arr = phrase_str.split(',');
+
+    var repeated_elements = phrase_arr.filter ( function (value, index) { return phrase_arr.indexOf(value) === index; } )
+
+    document.write(repeated_elements);
+
+}
+
+*/
+
+/* EJERCICIO 20 */
+
+/* Extraer los primeros 3 números del array 'numeros' */
+
+function ejercicio20() {
+
+    var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    var first_nums = [];
+
+    for (var i = 0; i < 3; i++) { first_nums.push(nums[i]); }
+
+    console.log('Los primeros 3 números son: ' + first_nums.join(', '));
+
+}
+
+/* EJERCICIO 21 */
+
+/* Extraer las palabras en las posiciones 2 y 3 del array 'palabras' */
+
+function ejercicio21() {
+
+    var words = ['Hola', 'Mundo', 'JavaScript', 'Introducción', 'Programación'];
+
+    console.log(words[2] + ' e ' + words[3] + ' están en las posiciones 2 y 3 del array');
+
+}
+
+/* EJERCICIO 22 */
+
+/* Extraer una parte de la frase desde el índice 5 hasta el 15 */
+
+function ejercicio22() {
+
+    var phrase = 'Este es un ejemplo de una frase larga.';
+    
+    var final_phrase = phrase.substring(5, 15);
+    
+    console.log('Parte de la frase: ' + final_phrase);
+
+}
+
+/* EJERCICIO 23 */
+
+/* Extraer los dos últimos elementos del array 'estudiantes' */
+
+function ejercicio23() {
+
+    var students = ['Ana', 'Juan', 'María', 'Pedro', 'Luis'];  
+
+    // Utiliza slice() con un índice negativo para obtener los últimos dos elementos
+
+    var last_students = students.slice(-2);
+
+    console.log('Los dos últimos estudiantes son: ' + last_students.join(', '));
+}
+
+/* EJERCICIO 24 */
+
+/* Extraer una porción del array 'numeros' desde el índice 3 hasta el final */
+
+function ejercicio24() {
+    
+    var all_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    // Utiliza slice() para obtener una porción del array desde el índice 3 hasta el final
+
+    var final_nums = all_nums.slice(3);
+
+    console.log('Porción de números desde el índice 3 hasta el final: ' + final_nums.join(', '));
+
+}
+
+/* EJERCICIO 25 */
+
+function ejercicio25() {
+
+
 
 }
