@@ -604,8 +604,85 @@ function ejercicio24() {
 
 /* EJERCICIO 25 */
 
+/* Pedirle una frase al usuario y devolver mitad en minuscula y mitad en mayuscula */
+
 function ejercicio25() {
 
+    var phrase = prompt('Introduce una frase: ');
 
+    // Calcular la longitud de la frase
+
+    var length = phrase.length;
+
+    // Divide la frase en dos partes, mitad en minúsculas y mitad en mayúsculas
+
+    var half = Math.floor(length / 2);
+
+    var lower_half = phrase.substring(0, half).toLowerCase();
+    var upper_half = phrase.substring(half, length).toUpperCase();
+
+    // Combina las dos mitades y muestra el resultado
+
+    var final_phrase = lower_half + upper_half;
+
+    console.log('Frase resultante: ' + final_phrase);
 
 }
+
+/* EJERCICIO 26 */
+
+/*  Escribe un programa en JavaScript que solicite al usuario ingresar una oración. A partir de la oración ingresada, el programa deberá realizar los siguientes pasos:
+
+    1. Contar la cantidad de palabras en la oración.
+
+    2. Solicitar al usuario ingresar una palabra específica para buscar en la oración.
+
+    3. Contar la cantidad de ocurrencias de la palabra ingresada en la oración.
+
+    4. Solicitar al usuario ingresar una nueva palabra para reemplazar todas las ocurrencias de la palabra ingresada en la oración.
+
+    5. Reemplazar todas las ocurrencias de la palabra ingresada por la nueva palabra.
+
+    6. Mostrar la oración resultante después de realizar el reemplazo.
+
+*/
+
+function ejercicio26() {
+
+    var phrase_str = prompt('Introduce una frase: ');
+
+    // Mostrar el número de palabras introducidas
+
+    var phrase_arr = phrase_str.split(' ');
+
+    var length = phrase_arr.length;
+
+    console.log('Has introducido ' + length + ' palabras');
+
+    // Mostrar el número de ocurrencias de una palabra en la frase
+
+    var word_ocurrences = 0;
+
+    var word_input_1 = prompt('Introduce una palabra que quieras buscar en la frase: ');
+
+    // Recorre todas las palabras en la frase y contar las ocurrencias de la palabra ingresada
+
+    for (var i = 0; i < phrase_arr.length; i++) {
+
+        var actual_word = phrase_arr[i];
+
+        if (word_input_1.toLowerCase() == actual_word.toLowerCase()) { word_ocurrences++; }
+
+    }
+
+    console.log('La palabra que has introducido aparece ' + word_ocurrences + ' vez/veces en la frase');
+
+    // Reemplazar la palabra a buscar por una nueva en la frase
+
+    var word_input_2 = prompt('Introduce otra palabra para reemplazarla por la anterior en la frase: ');
+
+    var new_phrase = phrase_str.replaceAll(word_input_1, word_input_2);
+
+    console.log('El resultado al reemplazar la segunda palabra por la primera es el siguiente: ' + new_phrase);
+
+}   
