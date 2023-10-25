@@ -686,3 +686,79 @@ function ejercicio26() {
     console.log('El resultado al reemplazar la segunda palabra por la primera es el siguiente: ' + new_phrase);
 
 }   
+
+
+/* EJERCICIO 27 */
+
+/* Dado el siguiente array de números: [10, 20, 30, 40, 50], elimina los elementos en las posiciones 1 y 3 */
+
+function ejercicio27() {
+
+    var nums = [10, 20, 30, 40, 50];
+
+    nums.splice(1, 1); 
+    nums.splice(2, 1); 
+
+    console.log(nums); 
+
+}
+
+/* EJERCICIO 28 */
+
+/* Dado el siguiente array de letras: ['a', 'b', 'c', 'd', 'e'], reemplaza los elementos en las posiciones 0 y 4 por los valores 'x' y 'y' respectivamente */
+
+function ejercicio28() {
+
+    var letters = ['a', 'b', 'c', 'd', 'e'];
+
+    letters.splice(0, 1, 'x');
+    letters.splice(4, 1, 'y');
+
+    console.log(letters); 
+
+}
+
+/* EJERCICIO 29 */
+
+/* Dado el siguiente array de palabras: ['hello', 'world', 'JavaScript'], inserta los elementos 'goodbye' y 'code' en la posición 2 sin eliminar ningún elemento existente */
+
+function ejercicio29() {
+
+    var words = ['hello', 'world', 'JavaScript'];
+
+    words.splice(2, 0, 'goodbye', 'code');
+
+    console.log(words);
+
+
+}
+
+/* EJERCICIO 30 */
+
+/* Dado el siguiente array de números: [5, 10, 15, 20, 25], extrae los elementos desde la posición 2 hasta la posición 4 y muestra tanto el array resultante como los elementos extraídos */
+
+function ejercicio30() {
+
+    const nums = [5, 10, 15, 20, 25];
+
+    const extractedNums = nums.slice(2, 4);
+
+    console.log(extractedNums); 
+
+}
+
+/* EJERCICIO 31 */
+
+/* Dado el siguiente array de frutas: ['manzana', 'banana', 'pera', 'uva', 'kiwi'], divide el array en dos partes en la posición 3 y muestra tanto la primera parte como la segunda parte resultantes */
+
+function ejercicio31() {
+
+    const fruits = ['manzana', 'banana', 'pera', 'uva', 'kiwi'];
+
+    const firstHalf = fruits.slice(0, 3);
+    const secondHalf = fruits.slice(3);
+
+    console.log(firstHalf); 
+    console.log(secondHalf); 
+
+}
