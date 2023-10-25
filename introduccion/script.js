@@ -955,3 +955,256 @@ function ejercicio41() {
     for (var i = 0; i < filteredBooks.length; i++) { document.write("Book " + i + " --> Titulo: " + filteredBooks[i].titulo + "<br>"); }
 
 }
+
+/* EJERCICIO 42 */
+
+/* Recorre el array words = ['hello', 'world', 'javascript'] de strings e imprime cada palabra en mayúsculas. */
+
+function ejercicio42() {
+
+    words = ['hello', 'world', 'javascript'];
+
+    for (var i = 0; i < words.length; i++) { document.write("Word " + i + ": " + words[i].toUpperCase() + "<br>"); }
+
+}
+
+/* EJERCICIO 43 */
+
+/* Dado el array numbers = [2, 4, 6, 8, 10] de números, crea un nuevo array que contenga el cuadrado de cada número. */
+
+function ejercicio43() {
+
+    nums = [2, 4, 6, 8, 10];
+
+    // Utiliza map para aplicar una función a cada elemento del array nums y almacenarlo en un nuevo array.
+
+    var squareds = nums.map(function (num) { return num * num; });
+
+    document.write(squareds);
+
+}
+
+/* EJERCICIO 44 */
+
+/* Verifica si todos los elementos del array names = ['John', 'Jane', 'Mark', 'Emily'] de strings tienen una longitud mayor a 3 caracteres. CORREGIR CON EVERY */
+
+function ejercicio44() {
+
+    var names = ['John', 'Jane', 'Mark', 'Emily'];
+
+    var arrayNamesLength = names.length;
+
+    for (var i = 0; i < arrayNamesLength; i++) { 
+
+        var nameLength = names[i].length;
+        
+        if (names[i].length > 3) {
+
+            document.write(names[i] + " tiene " + nameLength + " letras. Cumple la condición." + "<br>" )
+
+        } else { document.write(names[i] + " tiene " + nameLength + " letras. No cumple la condición." + "<br>") }
+          
+    }
+
+}
+
+/* EJERCICIO 45 */
+
+/* Verifica si al menos un elemento del array numbers = [8, 12, 7, 25, 16] de números es divisible por 5. */
+
+function ejercicio45() {
+
+    nums = [8, 12, 7, 25, 16];
+
+    var filteredNums = nums.some(function(num) { return num % 5 == 0 } ); 
+
+    if (filteredNums) {
+
+        console.log('Al menos un elemento es divisible entre 5.');
+
+    } else { console.log('Ningún elemento es divisible entre 5.'); }
+
+}
+
+/* EJERCICIO 46 */
+
+/* Recorre el array names = ['Alice', 'Bob', 'Charlie', 'David', 'Eleanor'] de nombres e imprime solo aquellos que contengan la letra 'a'. */
+
+function ejercicio46() {
+
+    var names = ['Alice', 'Bob', 'Charlie', 'David', 'Eleanor'];
+
+    var namesWithASubstr = names.filter(function (name) { return name.toLowerCase().includes("a"); });
+
+    for (var i = 0; i < namesWithASubstr.length; i++) { document.write("Name " + i + ": " + namesWithASubstr[i] + "<br>"); }
+
+}
+
+/* EJERCICIO 47 */
+
+/* Dado el array celsiusTemperatures = [25, 30, 15, 20, 10] de temperaturas en grados Celsius, conviértelo a grados Fahrenheit. */
+
+function ejercicio47() {
+
+    var celsiusTemperatures = [25, 30, 15, 20, 10];
+
+    var farenheitTemperatures = celsiusTemperatures.map(function(temperature) { return (temperature * 9/5) + 32; });
+
+    document.write(farenheitTemperatures);
+
+}
+
+/* EJERCICIO 48 */
+
+/* Verifica si todos los elementos del array numbers = [2, -4, 6, -8, 10] de números son positivos. */
+
+function ejercicio48() {
+
+    var nums = [2, -4, 6, -8, 10];
+
+    var arrayNumsLength = nums.length;
+
+    for (var i = 0; i < arrayNumsLength; i++) { 
+        
+        if (nums[i] >= 0) {
+    
+            document.write(nums[i] + " es positivo." + "<br>" )
+    
+        } else {
+    
+            document.write(nums[i] + " es negativo." + "<br>" )
+    
+        }
+
+    }
+
+}
+
+/* EJERCICIO 49 */
+
+/* Verifica si al menos un elemento del array phrases = ['I love JavaScript', 'JavaScript is fun', 'Coding with JavaScript'] de strings contiene la palabra "JavaScript". */ 
+
+function ejercicio49() {
+
+    var phrases = ['I love JavaScript', 'JavaScript is fun', 'Coding with JavaScript'];
+
+    var phrasesContainsSubstr = phrases.some(function(phrase) { return phrase.includes('JavaScript'); });
+
+    if (phrasesContainsSubstr) {
+
+        console.log('Al menos un elemento contiene la palabra "JavaScript".');
+
+    } else { console.log('Ningún elemento contiene la palabra "JavaScript".'); }
+
+}
+
+/* EJERCICIO 50 */ 
+
+/* Ordena alfabéticamente por el nombre el array users = [{ name: 'John', age: 30 }, { name: 'Alice', age: 25 }, { name: 'Bob', age: 35 }, { name: 'David', age: 28 }] de objetos. */ 
+
+function ejercicio50() {
+
+    var users = [
+
+        { name: 'John', age: 30 },
+        { name: 'Alice', age: 25 },
+        { name: 'Bob', age: 35 },
+        { name: 'David', age: 28 }
+
+    ];
+
+    users.sort((a, b) => a.name.localeCompare(b.name));
+    document.write(JSON.stringify(users)); 
+
+}
+
+/* EJERCICIO 51 */
+
+/* 
+
+Crea un juego de piedra, papel o tijera donde el jugador pueda competir contra el ordenador. El juego debe tener las siguientes características:
+
+    • El jugador podrá ingresar su jugada (piedra, papel o tijera) utilizando el método prompt.
+    • El ordenador elegirá su jugada de forma aleatoria.
+    • Se compararán las jugadas del jugador y el ordenador para determinar el resultado:
+
+        ◦ Si ambos jugadores eligen la misma opción, se mostrará un mensaje de empate.
+        ◦ Si el jugador elige piedra y el ordenador elige papel, se mostrará un mensaje indicando que el ordenador gana y se incrementará el contador de partidas perdidas.
+        ◦ Si el jugador elige piedra y el ordenador elige tijera, se mostrará un mensaje indicando que el jugador gana y se incrementará el contador de partidas ganadas.
+        ◦ Si el jugador elige papel y el ordenador elige piedra, se mostrará un mensaje indicando que el jugador gana y se incrementará el contador de partidas ganadas.
+        ◦ Si el jugador elige papel y el ordenador elige tijera, se mostrará un mensaje indicando que el ordenador gana y se incrementará el contador de partidas perdidas.
+        ◦ Si el jugador elige tijera y el ordenador elige piedra, se mostrará un mensaje indicando que el ordenador gana y se incrementará el contador de partidas perdidas.
+        ◦ Si el jugador elige tijera y el ordenador elige papel, se mostrará un mensaje indicando que el jugador gana y se incrementará el contador de partidas ganadas.
+    
+    • Después de cada partida, se mostrará un mensaje preguntando al jugador si desea jugar de nuevo. Si el jugador responde afirmativamente, se repetirá el proceso. De lo contrario, se mostrará un resumen de las partidas jugadas, partidas ganadas, partidas perdidas y partidas empatadas utilizando el método document.write.
+
+    ¡Disfruta del juego de piedra, papel o tijera contra el ordenador!
+
+*/
+
+function ejercicio51() {
+
+    var rock = 1;
+    var paper = 2;
+    var scissors = 3
+
+    var lostRounds = 0;
+    var wonRounds = 0;
+
+    do {
+
+        var userPlay = prompt('Introduce la jugada (1 piedra, 2 papel, 3 tijeras): ');
+        var computerPlay = Math.floor(Math.random() * 3) + 1;
+
+        if (userPlay == computerPlay) { console.log('Empate! Vuelve a jugar')}
+
+        else if (userPlay == rock && computerPlay == paper) {
+
+            console.log('Gana la máquina');
+            lostRounds++;
+
+        }
+
+        else if (userPlay == rock && computerPlay == scissors) {
+
+            console.log('Gana el jugador');
+            wonRounds++;
+
+        }
+
+        else if (userPlay == paper && computerPlay == scissors) {
+
+            console.log('Gana el jugador');
+            wonRounds++;
+
+        } 
+
+        else if (userPlay == paper && computerPlay == rock) {
+
+            console.log('Gana el jugador');
+            wonRounds++;
+
+        }
+
+        else if (userPlay == scissors && computerPlay == rock) {
+
+            console.log('Gana la máquina');
+            lostRounds++;
+
+        }
+
+        else if (userPlay == scissors && computerPlay == paper) {
+
+            console.log('Gana el jugador');
+            wonRounds++;
+
+        }
+
+        console.log('Partidas ganadas: ' + wonRounds);
+        console.log('Partidas perdidas: ' + lostRounds);
+
+        playAgain = confirm('Deseas volver a jugar?')
+
+    } while (playAgain == true)
+
+}
