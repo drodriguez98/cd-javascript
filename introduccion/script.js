@@ -762,3 +762,196 @@ function ejercicio31() {
     console.log(secondHalf); 
 
 }
+
+/* EJERCICIO 32 */
+
+/* Filtrar los números pares del array numeros y mostrarlos en el documento */
+
+function ejercicio32() {
+
+    var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    var evenNums = nums.filter(function(number) {return number % 2 === 0});
+
+    for (var i = 0; i < evenNums.length; i++) { document.write("Num " + i + ": " + evenNums[i] + "<br>"); }
+
+}
+
+/* EJERCICIO 33 */
+
+/* Filtrar las palabras del array palabras que empiezan con la letra "b" y mostrarlas en el documento */
+
+function ejercicio33() {
+
+    var words = ["manzana", "pera", "kiwi", "sandía", "banana"];
+
+    var startsWithB = words.filter(function (word) { return word[0] === 'b'; } );
+
+    for (var i = 0; i < startsWithB.length; i++) { document.write("Word " + i + ": " + startsWithB[i] + "<br>"); }
+
+}
+
+/* EJERCICIO 34 */
+
+/* Filtrar los números del array numeros que son mayores que 50 y mostrarlos en el documento */ 
+
+function ejercicio34() {
+
+    var nums = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    var over50Nums = nums.filter(function (num) { return num > 50; } );
+
+    for (var i = 0; i < over50Nums.length; i++) { document.write("Num " + i + ": " + over50Nums[i] + "<br>"); }
+
+}
+
+/* EJERCICIO 35 */
+
+/* Filtrar las personas en el array de objetos personas cuya edad sea mayor o igual a 30 y mostrarlas en el documento */
+
+function ejercicio35() {
+
+    var persons = [ 
+        
+        { nombre: "Juan", edad: 25 }, 
+        { nombre: "María", edad: 30 }, 
+        { nombre: "Pedro", edad: 35 }, 
+        { nombre: "Ana", edad: 40 } 
+    
+    ];
+
+    var over30Persons = persons.filter(function (person) { return person.edad >= 30; });
+
+    for (var i = 0; i < over30Persons.length; i++) { document.write("Person " + i + " --> Nombre: " + over30Persons[i].nombre + ", Edad: " + over30Persons[i].edad + "<br>"); }
+
+}
+ 
+/* EJERCICIO 36 */
+
+/* Filtrar las palabras del array palabras que contienen la subcadena "an" y mostrarlas en el documento */
+
+function ejercicio36() {
+
+    var words = ["manzana", "banana", "pera", "kiwi", "sandía"];
+
+    var wordsWithAnSubstr = words.filter(function (word) { return word.includes("an"); });
+
+    for (var i = 0; i < wordsWithAnSubstr.length; i++) { document.write("Word " + i + ": " + wordsWithAnSubstr[i] + "<br>"); }
+
+}
+
+/* EJERCICIO 37 */
+
+/* Dado un array de objetos personas, debes filtrar y obtener los objetos cuya propiedad nombre coincida. exactamente con un valor específico. Almacena los objetos filtrados en la variable personasFiltradas. */
+
+function ejercicio37() {
+
+    var persons = [ 
+        
+        { nombre: "Juan", edad: 25 }, 
+        { nombre: "María", edad: 30 }, 
+        { nombre: "Pedro", edad: 35 }, 
+        { nombre: "Ana", edad: 40 } 
+    
+    ];
+
+    var nameToFind = "María";
+
+    var matches =  persons.filter(function (person) { return person.nombre === nameToFind});
+
+    for (var i = 0; i < matches.length; i++) { document.write("Person " + i + " --> Nombre: " + matches[i].nombre + ", Edad: " + matches[i].edad + "<br>"); }
+
+}
+
+/* EJERCICIO 38 */
+
+/* Dado un array de objetos productos, debes filtrar y obtener los objetos cuya propiedad precio sea menor o igual a un valor máximo dado. Almacena los objetos filtrados en la variable productosFiltrados. */
+
+function ejercicio38() {
+
+    var products = [ 
+        
+        { nombre: "Camisa", precio: 20 }, 
+        { nombre: "Pantalón", precio: 30 }, 
+        { nombre: "Zapatos", precio: 50 }, 
+        { nombre: "Sombrero", precio: 15 } 
+    
+    ];
+
+    var maxPrice = 40;
+
+    var overInputPrice = products.filter(function (product) { return product.precio >= maxPrice; });
+
+    for (var i = 0; i < overInputPrice.length; i++) { document.write("Product " + i + " --> Nombre: " + overInputPrice[i].nombre + ", Precio: " + overInputPrice[i].precio + "<br>"); }
+
+}
+
+/* EJERCICIO 39 */
+
+/* Dado un array de objetos tareas, debes filtrar y obtener los objetos cuya propiedad completada sea true. Almacena los objetos filtrados en la variable tareasCompletadas. */
+
+function ejercicio39() {
+
+    var tasks = [ 
+        
+        { nombre: "Comprar leche", completada: true }, 
+        { nombre: "Pagar facturas", completada: false }, 
+        { nombre: "Hacer ejercicio", completada: true }, 
+        { nombre: "Llamar al médico", completada: false } 
+    
+    ];
+
+    var completedTasks = tasks.filter(function (task) { return task.completada >= true; });
+
+    for (var i = 0; i < completedTasks.length; i++) { document.write("Task " + i + " --> Nombre: " + completedTasks[i].nombre + ", Completada : " + completedTasks[i].completada + "<br>"); }
+
+}
+
+/* EJERCICIO 40 */
+
+/* Dado un array de objetos empleados, debes filtrar y obtener los objetos que cumplan con dos condiciones: que la propiedad departamento sea igual a un valor específico y que la propiedad edad sea mayor o igual a un valor mínimo dado. Almacena los objetos filtrados en la variable empleadosFiltrados. */
+
+function ejercicio40() {
+
+    var employees = [ 
+        
+        { nombre: "Juan", edad: 25, departamento: "Ventas" }, 
+        { nombre: "María", edad: 30, departamento: "Marketing" }, 
+        { nombre: "Pedro", edad: 35, departamento: "Ventas" }, 
+        { nombre: "Ana", edad: 40, departamento: "Recursos Humanos" } 
+    
+    ];
+
+    var departmentToFind = "Ventas";
+    var minAge = 30;
+
+    var filteredEmployees = employees.filter(function(employee) { return employee.departamento = departmentToFind && employee.edad >= minAge } );
+
+    for (var i = 0; i < filteredEmployees.length; i++) { document.write("Employee " + i + " --> Nombre: " + filteredEmployees[i].nombre + ", Edad : " + filteredEmployees[i].edad + "<br>"); }
+
+}
+
+/* EJERCICIO 41 */
+
+/* Dado un array de objetos libros, debes filtrar y obtener los objetos cuya propiedad titulo contenga una subcadena específica, sin importar mayúsculas o minúsculas. Almacena los objetos filtrados en la variable librosFiltrados. */
+
+function ejercicio41() {
+
+    var books = [
+
+        { titulo: "El gran Gatsby", autor: "F. Scott Fitzgerald" },
+        { titulo: "Cien años de soledad", autor: "Gabriel García Márquez" },
+        { titulo: "1984", autor: "George Orwell" },
+        { titulo: "Orgullo y prejuicio", autor: "Jane Austen" }
+        
+    ];
+
+    var substringToFind = "soledad";
+
+    // Utiliza toLowerCase() para hacer que las comparaciones sean insensibles a mayúsculas/minúsculas
+
+    var filteredBooks = books.filter(function(book) { return book.titulo.toLowerCase().includes(substringToFind.toLowerCase()); });
+
+    for (var i = 0; i < filteredBooks.length; i++) { document.write("Book " + i + " --> Titulo: " + filteredBooks[i].titulo + "<br>"); }
+
+}

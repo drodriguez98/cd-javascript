@@ -239,4 +239,40 @@ function ejercicio13(){
     }
 }
 
+// Ejercicio 1: Eliminar elementos de un array
+
+  var numeros = [10, 20, 30, 40, 50];
+  numeros.splice(1, 1); // Elimina el elemento en el índice 1
+  numeros.splice(2, 1); // Elimina el elemento en el índice 2
+  document.write("Ejercicio 1 - Números: " + numeros + "<br>");
+
+// Ejercicio 2: Reemplazar elementos en un array
+
+  var letras = ['a', 'b', 'c', 'd', 'e'];
+
+  letras.splice(0, 1, 'x'); // Reemplaza el elemento en el índice 0 por 'x'
+  letras.splice(4, 1, 'y'); // Reemplaza el elemento en el índice 4 por 'y'
+  document.write("Ejercicio 2 - Letras: " + letras + "<br>");
+
+// Ejercicio 3: Insertar elementos en un array
+
+  var palabras = ['hello', 'world', 'JavaScript'];
+  palabras.splice(2, 0, 'goodbye', 'code'); // Inserta 'goodbye' y 'code' en el índice 2
+  document.write("Ejercicio 3 - Palabras: " + palabras + "<br>");
+
+// Ejercicio 4: Extraer una porción de elementos de un array
+
+  var numerosExtract = [5, 10, 15, 20, 25];
+  var elementosExtraidos = numerosExtract.splice(2, 3); // Extrae 3 elementos a partir del índice 2
+  document.write("Ejercicio 4 - Números Extraídos: " + elementosExtraidos + "<br>");
+  document.write("Ejercicio 4 - Números Restantes: " + numerosExtract + "<br>");
+
+// Ejercicio 5: Dividir un array en dos partes
+
+  var frutas = ['manzana', 'banana', 'pera', 'uva', 'kiwi'];
+  var primeraParte = frutas.splice(0, 3); // Extrae los primeros 3 elementos
+  var segundaParte = frutas; // La segunda parte es el resto del array original
+  document.write("Ejercicio 5 - Primera Parte: " + primeraParte + "<br>");
+  document.write("Ejercicio 5 - Segunda Parte: " + segundaParte + "<br>");
+
 
