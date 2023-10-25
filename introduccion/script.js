@@ -739,9 +739,9 @@ function ejercicio29() {
 
 function ejercicio30() {
 
-    const nums = [5, 10, 15, 20, 25];
+    var nums = [5, 10, 15, 20, 25];
 
-    const extractedNums = nums.slice(2, 4);
+    var extractedNums = nums.slice(2, 4);
 
     console.log(extractedNums); 
 
@@ -753,10 +753,10 @@ function ejercicio30() {
 
 function ejercicio31() {
 
-    const fruits = ['manzana', 'banana', 'pera', 'uva', 'kiwi'];
+    var fruits = ['manzana', 'banana', 'pera', 'uva', 'kiwi'];
 
-    const firstHalf = fruits.slice(0, 3);
-    const secondHalf = fruits.slice(3);
+    var firstHalf = fruits.slice(0, 3);
+    var secondHalf = fruits.slice(3);
 
     console.log(firstHalf); 
     console.log(secondHalf); 
