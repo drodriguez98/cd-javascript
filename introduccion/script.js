@@ -1208,3 +1208,338 @@ function ejercicio51() {
     } while (playAgain == true)
 
 }
+
+/* 26/16/2023 */
+
+/* EJERCICICO 52 */
+
+/* Calcular la edad de una persona:
+
+    Solicitar al usuario su fecha de nacimiento.
+    Calcular la diferencia en años entre la fecha actual y la fecha de nacimiento y mostrar la edad resultante.
+
+*/
+
+function ejercicio52() {
+
+    var birthdateStr = prompt("Por favor, ingrese su fecha de nacimiento (en formato AAAA-MM-DD):");
+
+    // Obtiene la fecha actual
+
+    var actualDate = new Date();
+
+    // Convierte la fecha de nacimiento ingresada por el usuario en un objeto Date
+
+    var birthdateDate = new Date(birthdateStr);
+
+    // Calcula la diferencia en años y muestra el resultado.
+
+    var timeDifference = actualDate - birthdateDate;
+
+    var age = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365.25));
+
+    alert("Su edad es " + age + " años");
+
+}
+
+/* EJERCICICO 53 */
+
+/* Calcular el tiempo transcurrido desde una fecha específica:
+
+    Solicitar al usuario una fecha en el pasado.
+    Calcular la diferencia en días, horas, minutos y segundos entre la fecha actual y la fecha ingresada.
+
+*/
+
+function ejercicio53() {
+
+    var pastDateStr = prompt("Por favor, ingrese la primera fecha (en formato AAAA-MM-DD):");
+
+    var pastDate = new Date(pastDateStr);
+
+    var actualDate = new Date();
+
+    // Calcula la diferencia en milisegundos entre la fecha actual y la fecha en el pasado
+
+    var millisecondsDifference = actualDate - pastDate;
+
+    // Calcula la diferencia en días, horas, minutos y segundos
+
+    var secondsDifference = Math.floor(millisecondsDifference / 1000);
+
+    var minutesDifference = Math.floor(secondsDifference /  60);
+
+    var hoursDifference = Math.floor(minutesDifference / 60);  
+
+    var daysDifference = Math.floor(hoursDifference / 24);
+
+    secondsDifference %= 60;
+    minutesDifference %= 60;
+    hoursDifference %= 24;
+
+    alert("Han pasado " + daysDifference + " días, " + hoursDifference + " horas, " + minutesDifference + " minutos y " + secondsDifference + " segundos desde la fecha ingresada en el pasado.");
+
+}
+
+/* EJERCICICIO 54 */
+
+/* Obtener el día de la semana de una fecha específica:
+
+    Solicitar al usuario una fecha.
+    Obtener el día de la semana correspondiente a esa fecha.
+    Mostrar el día de la semana.
+
+*/
+
+function ejercicio54() {
+
+    var dateStr = prompt("Por favor, ingrese una fecha (en formato AAAA-MM-DD):");
+
+    var date = new Date(dateStr);
+
+    // El método getDay() devuelve un número de 0 a 6 que se usa como índice en el array para obtener el nombre del día.
+
+    var weekDays = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+    var weekDay = weekDays[date.getDay()];
+
+    alert("El día de la semana correspondiente a la fecha ingresada es " + weekDay);
+
+}
+
+/* EJERCICICIO 55 */
+
+/* Calcular la fecha de vencimiento de un plazo:
+
+    Solicitar al usuario una fecha de inicio y una duración en días.
+    Calcular la fecha de vencimiento sumando la duración a la fecha de inicio.
+    Mostrar la fecha de vencimiento.
+
+*/
+
+function ejercicio55() {
+
+    var inputDateStr = prompt("Por favor, ingrese la fecha de inicio (en formato AAAA-MM-DD):");
+    
+    var inputDate = new Date(inputDateStr);
+
+    var durationInDays = parseInt(prompt("Ingrese la duración en días:"));
+
+    // Calcula la fecha de vencimiento creando una copia de la fecha inicial y sumándole la duración
+
+    inputDate.setDate(inputDate.getDate() + durationInDays);
+
+    var year = inputDate.getFullYear();
+    var month = inputDate.getMonth() + 1; 
+    var day = inputDate.getDate();
+
+    var formattedEndDate = year + "-";
+
+    // Agrega un 0 al mes antes de añadirlo a la fecha si es menor que 10
+
+    if (month < 10) { formattedEndDate += "0"; }
+
+    formattedEndDate += month + "-";
+
+    // Agrega un 0 al día antes de añadirlo si es menor que 10
+
+    if (day < 10) { formattedEndDate += "0"; }
+
+    formattedEndDate += day;
+
+    alert("La fecha de vencimiento es " + formattedEndDate);
+
+}
+
+/* EJERCICIO 56 */
+
+/* Verificar si una fecha es un día festivo:
+
+    Solicitar al usuario una fecha.
+    Comprobar si esa fecha corresponde a un día festivo predefinido.
+    Mostrar si la fecha es un día festivo o no.
+
+*/
+
+function ejercicio56() {
+
+    var inputDateStr = prompt("Por favor, ingrese una fecha (en formato AAAA-MM-DD):");
+
+    var inputDate = new Date(inputDateStr);
+
+    var festives = [new Date(2023, 0, 1), new Date(2023, 0, 3)];
+
+    // Verifica si la fecha es un día festivo
+
+    var isFestive = false;
+
+    // Comprueba si la fecha ingresada coincide con alguno de los días festivos
+
+    for (var i = 0; i < festives.length; i++) {
+
+        if ( festives[i].getFullYear() == inputDate.getFullYear() && festives[i].getMonth() == inputDate.getMonth() && festives[i].getDate() == inputDate.getDate() ) { isFestive = true; }
+
+    }
+
+    if (isFestive) {
+
+        alert("La fecha ingresada es un día festivo");
+
+    } else {
+
+        alert("La fecha ingresada no es un día festivo");
+
+    }
+
+}
+
+/* EJERCICIO 57 */
+
+/* Calcular la diferencia de días entre dos fechas
+
+    Solicitar al usuario dos fechas.
+    Calcular la diferencia en días entre las dos fechas.
+    Mostrar la diferencia de días.
+
+*/
+
+function ejercicio57() {
+
+    var dateStr1 = prompt("Por favor, ingrese la primera fecha (en formato AAAA-MM-DD):");
+    var dateStr2 = prompt("Por favor, ingrese la segunda fecha (en formato AAAA-MM-DD):");
+
+    // Conviertelas fechas ingresadas en objetos Date
+
+    var date1 = new Date(dateStr1);
+    var date2 = new Date(dateStr2);
+
+    // Calcula la diferencia en milisegundos entre las dos fechas
+
+    var millisecondsDifference = date2 - date1;
+
+    // Convierte la diferencia en milisegundos a días
+
+    var daysDifference = Math.floor(millisecondsDifference/ (1000 * 60 * 60 * 24));
+
+    alert("La diferencia en días entre las dos fechas es de " + daysDifference + " días");
+
+}
+
+/* EJERCICIO 57 - SOLUCIÓN */
+
+/*
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+    <meta charset="utf-8">
+    <title>Verificar Día Festivo</title>
+    </head>
+
+    <body>
+    <!-- Etiquetas y campos de entrada -->
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha">
+
+    <!-- Botón para verificar si es un día festivo -->
+    <button onclick="verificarDiaFestivo()">Verificar</button>
+
+    <!-- Párrafo para mostrar el resultado -->
+    <p id="resultado"></p>
+
+    <script>
+        function verificarDiaFestivo() {
+        // Obtiene la fecha ingresada en el campo de entrada
+        var fecha = new Date(document.getElementById("fecha").value);
+
+        // Arreglo de fechas festivas
+        var festivos = [
+            new Date(2023, 0, 1),  // Año Nuevo
+            new Date(2023, 3, 14), // Viernes Santo
+            new Date(2023, 4, 1),  // Día del Trabajador
+            new Date(2023, 6, 25), // Santiago Apóstol
+            new Date(2023, 9, 12), // Fiesta Nacional de España
+            new Date(2023, 10, 1), // Día de Todos los Santos
+            new Date(2023, 11, 6), // Día de la Constitución Española
+            new Date(2023, 11, 25), // Navidad
+        ];
+
+        // Verifica si la fecha ingresada coincide con alguna fecha festiva
+        var esFestivo = festivos.some(function (festivo) {
+            return festivo.getDate() === fecha.getDate() && festivo.getMonth() === fecha.getMonth() && festivo.getFullYear() === fecha.getFullYear();
+        });
+
+        // Muestra el resultado de si es un día festivo o no en el párrafo indicado
+        if (esFestivo) {
+            document.getElementById("resultado").textContent = "La fecha es un día festivo";
+        } else {
+            document.getElementById("resultado").textContent = "La fecha no es un día festivo";
+        }
+        }
+    </script>
+    </body>
+
+    </html>
+
+*/
+
+/* EJERCICIO 58 */
+
+/* Obtener la fecha de inicio y fin de una semana específica:
+
+    Solicitar al usuario un número de semana y un año.
+    Calcular la fecha de inicio y fin de esa semana.
+    Mostrar la fecha de inicio y fin.
+    
+*/
+
+function ejercicio58() {
+
+    var week = parseInt(prompt("Por favor, ingrese un número de semana:"));
+    var year = parseInt(prompt("Por favor, ingrese un año:"));
+
+    // Crea una nueva fecha para el 1 de enero del año proporcionado
+
+    var inputYear = new Date(year, 0, 1);
+
+    // Calcula el primer día de la semana 1 (Lunes) del año proporcionado
+
+    var firstDayInputYear = inputYear.getDay();
+    var daysUntilFirstMonday = (7 - firstDayInputYear) % 7;
+
+    inputYear.setDate(inputYear.getDate() + daysUntilFirstMonday);
+
+    // Calcula la fecha de inicio de la semana especificada
+
+    var fechaInicioSemana = new Date(fechaInicioAnio);
+    fechaInicioSemana.setDate(fechaInicioAnio.getDate() + (numeroSemana - 1) * 7);
+    
+
+
+}
+
+/*
+
+
+Calcular la diferencia de días entre dos fechas:
+Solicitar al usuario dos fechas.
+Calcular la diferencia en días entre las dos fechas.
+Mostrar la diferencia de días.
+Obtener la fecha de inicio y fin de una semana específica:
+Solicitar al usuario un número de semana y un año.
+Calcular la fecha de inicio y fin de esa semana.
+Mostrar la fecha de inicio y fin.
+Calcular el número de días hábiles entre dos fechas:
+Solicitar al usuario una fecha de inicio y una fecha de fin.
+Calcular el número de días hábiles (excluyendo fines de semana) entre las dos fechas.
+Mostrar el número de días hábiles.
+Obtener la fecha actual en diferentes formatos:
+Obtener la fecha actual.
+Mostrar la fecha en formatos diferentes, como "DD/MM/AAAA", "AAAA-MM-DD", "Día de la semana, DD de Mes de AAAA", etc.
+Generar una secuencia de fechas:
+Solicitar al usuario una fecha de inicio y una fecha de fin.
+Generar una secuencia de fechas diarias entre las dos fechas.
+Mostrar todas las fechas generadas.
+
+*/
