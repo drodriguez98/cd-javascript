@@ -1515,21 +1515,14 @@ function ejercicio58() {
     var fechaInicioSemana = new Date(fechaInicioAnio);
     fechaInicioSemana.setDate(fechaInicioAnio.getDate() + (numeroSemana - 1) * 7);
     
-
+    // SIN ACABAR !!!!
 
 }
 
 /*
 
+PEDIR CORRECIONES A ZAIRA
 
-Calcular la diferencia de días entre dos fechas:
-Solicitar al usuario dos fechas.
-Calcular la diferencia en días entre las dos fechas.
-Mostrar la diferencia de días.
-Obtener la fecha de inicio y fin de una semana específica:
-Solicitar al usuario un número de semana y un año.
-Calcular la fecha de inicio y fin de esa semana.
-Mostrar la fecha de inicio y fin.
 Calcular el número de días hábiles entre dos fechas:
 Solicitar al usuario una fecha de inicio y una fecha de fin.
 Calcular el número de días hábiles (excluyendo fines de semana) entre las dos fechas.
@@ -1543,3 +1536,152 @@ Generar una secuencia de fechas diarias entre las dos fechas.
 Mostrar todas las fechas generadas.
 
 */
+
+/* EXPRESIONES REGULARES */
+
+/* https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_expressions */
+ 
+/* EJERCICIO 59 */
+
+/* Validación de Correo Electrónico:
+
+    Solicitar al usuario su correo electrónico
+    Validar correo electrónico
+    Mostrar si el correo electrónico es válido o no
+
+*/
+
+function ejercicio59() {
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    var email = "prueba@gmail.com";
+
+    if (emailRegex.test(email)) {
+
+        console.log("El correo electrónico es válido.");
+
+    } else { console.log("El correo electrónico no es válido") };
+
+    /*
+
+        /^      inicio de la cadena
+        [^\s@]  cualquier carácter que no sea un espacioen blanco ( \s ) ni un signo "@"
+        +       el carácter anterior debe aparecer una o más veces
+        @       carácter @ literal
+        [^\s@]  cualquier carácter que no sea un espacioen blanco ( \s ) ni un signo "@"
+        \.      carácter . literal
+        [^\s@]  cualquier carácter que no sea un espacioen blanco ( \s ) ni un signo "@"
+        $       final de la cadena
+
+    */
+
+}
+
+/* EJERCICIO 60 */
+
+/* Validar número de teléfono
+
+    Solicitar al usuario su número de teléfono
+    Validar número de teléfono
+    Mostrar si el número de teléfono es válido o no
+    
+*/
+
+function ejercicio60() {
+
+    var phone = "+34677852955";
+
+    var phoneRegex = /^(?:\+34|0034|34)?[-*]*(6|7)[-]*[0-9]{8}$/;
+
+    if (phoneRegex.test(phone)) {
+
+        console.log("El número de teléfono es válido.");
+
+    } else { console.log("El número de teléfono no es válido") }
+
+    /*
+
+        ^                       inicio de cadena
+        (?:\+34|0034|34)        el número debe empezar con alguno de los 3 formatos
+        [-*]                    permite la presencia de guiones o asteriscos
+        (6|7)                   el número debe empezar por 6 o 7
+        [0-9] {8}               8 dígitos numéricos del 0 al 9
+        $                       final de la cadena
+
+    */
+
+}
+
+/* EJERCICIO 61 -> Expresiones regulares (Javascript). */
+
+/* A partir del siguiente texto, debes encontrar con una función los números de teléfono y mostrarlos por pantalla.
+
+    “Mi número de teléfono es 123-456-7890 y otro número es 555-555-5555.”
+    
+    Obtener los números de teléfono del texto
+    Mostrar los números de teléfono por pantalla
+
+*/
+
+function ejercicio61() {
+
+    var texto = "Mi número de teléfono es 123-456-7890 y otro número es 555-555-5555.";
+
+    // Expresión regular para encontrar números de teléfono en el formato XXX-XXX-XXXX
+
+    var regex = /\d{3}-\d{3}-\d{4}/g;
+    
+    // Usa match() para encontrar todas las coincidencias en el texto
+
+    var numerosTelefono = texto.match(regex);
+    
+    if (numerosTelefono) {
+      
+        for (var i = 0; i < numerosTelefono.length; i++) { 
+        
+            console.log("Número de teléfono encontrado: " + numerosTelefono[i]); 
+    
+        }
+
+    } else { console.log("No se encontraron números de teléfono en el texto."); }
+
+    /* 
+
+        /       inicio de la cadena
+        \d{3}   cadena numérica de 3 dígitos
+        -       carácter guión literal
+        \d{4}   cadena numérica de 4 dígitos
+        /g      búsqueda global
+
+    */
+
+}
+
+/* EJERCICIO 62 */
+
+/* A partir del siguiente texto debes reemplazar la palabra “gato”.
+
+    Los niños tenían un gato en casa.
+    El gato era un gato travieso.
+    El gato solía subirse a los árboles.
+    Los niños amaban al gato.
+    El gato, el gato, el gato, siempre el gato.
+
+    Crear una función que reemplace la palabra “gato” por la que se le mande por parámetro y mostrar el texto modificado
+
+*/
+
+function ejercicio62() {
+
+    var text = "Los niños tenían un gato en casa. El gato era un gato travieso. El gato solía subirse a los árboles. Los niños amaban al gato. El gato, el gato, el gato, siempre el gato.";
+    
+    var newWord = "perro";
+
+    var regex = /gato/g;
+
+    var modifiedText = text.replaceAll(regex, newWord);
+
+    console.log(modifiedText)
+
+}
