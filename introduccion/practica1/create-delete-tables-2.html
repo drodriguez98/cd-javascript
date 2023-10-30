@@ -9,23 +9,21 @@
       border-collapse: collapse;
     }
 
-    th,
-    td {
+    th, td {
       border: 1px solid black;
       padding: 8px;
     }
-
   </style>
 </head>
 
 <body>
   <h1>Tabla Dinámica</h1>
-
   <table id="miTabla">
     <thead>
       <tr>
         <th>Nombre</th>
         <th>Apellido</th>
+        <th>Fecha de Nacimiento</th>
         <th>Edad</th>
         <th>Acciones</th>
       </tr>
@@ -34,26 +32,23 @@
       <tr>
         <td>Tomás</td>
         <td>Fuentes</td>
+        <td>1999-03-24</td>
         <td>24</td>
-        <td><button onclick="eliminarFila(this)">Eliminar</button></td>
+        <td><button onclick="deleteRow(this)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
-
   <br>
-
   <form id="formulario">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre">
     <label for="apellido">Apellido:</label>
     <input type="text" id="apellido">
-    <label for="edad">Edad:</label>
-    <input type="number" id="edad">
-    <button type="button" onclick="agregarFila()">Agregar Fila</button>
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento">
+    <button type="button" onclick="addRow()">Agregar Fila</button>
   </form>
-
-  <script>
-  </script>
+  <script src="script-tables-2.js"></script>
 </body>
 
 </html>
