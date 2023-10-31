@@ -2,15 +2,15 @@ function addRow() {
 
     // Recoge los datos del formulario
 
-    var name = document.getElementById("nombre").value;
-    var surname = document.getElementById("apellido").value;
-    var birthdate = document.getElementById("fechaNacimiento").value;
+    var nameInput = document.getElementById("nombre").value;
+    var surnameInput = document.getElementById("apellido").value;
+    var birthdateInput = document.getElementById("fechaNacimiento").value;
 
     // Si los campos no están vacíos...
 
-    if (name.trim() !== "" && surname.trim() !== "" && birthdate.trim() !== "") {
+    if (nameInput.value !== "" && surnameInput.value !== "" && birthdateInput.value !== "") {
 
-        var birthdateDate = new Date(birthdate);
+        var birthdateDate = new Date(birthdateInput);
         var today = new Date();
         var age = today.getFullYear() - birthdateDate.getFullYear();
         
@@ -29,10 +29,11 @@ function addRow() {
 
         // Añade el contenido a las columnas
         
-        columnName.textContent = name;
-        columnSurname.textContent = surname;
-        columnBirthdate.textContent = birthdate;
+        columnName.textContent = nameInput;
+        columnSurname.textContent = surnameInput;
+        columnBirthdate.textContent = birthdateInput;
         columnAge.textContent = age;
+
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "Eliminar";
 
