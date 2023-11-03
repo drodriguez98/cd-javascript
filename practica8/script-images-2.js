@@ -10,11 +10,7 @@ function showImage(index) {
 
         image.style.display = 'block';
 
-      } else {
-
-        image.style.display = 'none';
-
-      }
+      } else { image.style.display = 'none'; }
 
     });
 

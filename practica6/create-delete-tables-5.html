@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Tabla Dinámica</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Tabla Dinámica</h1>
+  <table id="miTabla">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tomás</td>
+        <td>Fuentes</td>
+        <td>1999-03-24</td>
+        <td>24</td>
+        <td><button onclick="deleteRow(this)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <form id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido">
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento">
+    <button type="button" onclick="addRow()">Agregar Fila</button>
+    <button type="button" onclick="searchOldestPerson()">Buscar persona más mayor</button>
+  </form>
+  <script src="script-tables-5.js"></script>
+</body>
+</html>

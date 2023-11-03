@@ -78,71 +78,65 @@ function deleteRow(row) {
 
 }
 
-function markSameNames() {
+// Eliminar filas que se repiten en su totalidad
+
+function markAndRemoveIdenticalRows() {
 
     // Obtener todas las filas de la tabla
 
     var rows = document.querySelectorAll('tr');
 
-    // Crear un objeto para almacenar nombres y sus respectivas filas
+    // Crear un objeto para almacenar las veces que se repite cada fila
 
-    var namesList = {};
+    var rowCount = {};
 
     // Recorrer las filas a partir de la segunda (ignorando la cabecera)
 
-    for (var i = 1; i < rows.length; i++) {
+    for (var row = 1; row < rows.length; row++) {
 
-        var cells = rows[i].querySelectorAll('td');
-        var name = cells[0].textContent; // Nombre en la primera columna
+        var cells = rows[row].querySelectorAll('td');
 
-        // Comprobar si el nombre ya existe en el objeto. Si existe, marca la fila actual y la fila previamente registrada. Si no existe, registra la fila actual en el objeto.
+        var rowContent = "";
 
-        if (namesList[name] !== undefined) {
-            
-            rows[i].style.backgroundColor = 'palegreen';
-            //rows[namesList[name]].style.backgroundColor = 'palegreen';
+        // Obtener el valor de cada celda y agregarlo a la cadena que representa la fila
 
-        } else {
-            
-            namesList[name] = i;
-            rows[i].style.backgroundColor = '';
+        for (var cell = 0; cell < cells.length - 1; cell++) {
+
+            var cellValue = cells[cell].textContent;
+            rowContent += cellValue + ",";
 
         }
+
+        // Contar cuántas veces se repite esta fila
+        
+        if (rowCount[rowContent] === undefined) {
+
+            rowCount[rowContent] = 1;
+
+        } else { rowCount[rowContent]++; }
 
     }
 
-}
+    // Eliminar las filas que se repiten
 
-function markSameAges() {
+    for (var row = 1; row < rows.length; row++) {
 
-    // Obtener todas las filas de la tabla
+        var cells = rows[row].querySelectorAll('td');
 
-    var rows = document.querySelectorAll('tr');
+        var rowContent = "";
 
-    // Crear un objeto para almacenar edades y sus respectivas filas
+        // Obtener el valor de cada celda y agregarlo a la cadena que representa la fila
 
-    var agesList = {};
+        for (var cell = 0; cell < cells.length - 1; cell++) {
 
-    // Recorrer las filas a partir de la segunda (ignorando la cabecera)
-
-    for (var i = 1; i < rows.length; i++) {
-
-        var cells = rows[i].querySelectorAll('td');
-        var age = cells[3].textContent; // Edad en la cuarta columna
-
-        // Comprobar si la edad ya existe en el objeto. Si existe, marca la fila actual y la fila previamente registrada. Si no existe, registra la fila actual en el objeto.
- 
-        if (agesList[age] !== undefined) {
-
-            rows[i].style.backgroundColor = 'skyblue';
-            rows[agesList[age]].style.backgroundColor = 'skyblue';
-
-        } else {
-
-            agesList[age] = i;
-            rows[i].style.backgroundColor = '';
+            var cellValue = cells[cell].textContent;
+            rowContent += cellValue + ",";
 
         }
+
+        // Si esta fila se repite más de una vez, eliminarla
+
+        if (rowCount[rowContent] > 1) { deleteRow(rows[row]); }
 
     }
 
