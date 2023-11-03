@@ -1,4 +1,7 @@
+// Array para almacenar los objetos Persona.
+
 var people = [];
+
 
 function addRow() {
 
@@ -12,87 +15,85 @@ function addRow() {
 
     if (nameInput !== "" && surnameInput !== "" && birthdateInput !== "") {
 
+        // Calcular la edad teniendo en cuenta si ya ha cumplido este año
+
         var birthdateDate = new Date(birthdateInput);
         var today = new Date();
         var age = today.getFullYear() - birthdateDate.getFullYear();
-        
-        // Ajustar la edad si el cumpleaños aún no ha llegado este año
 
         if ( today.getMonth() < birthdateDate.getMonth() || (today.getMonth() === birthdateDate.getMonth() && today.getDate() < birthdateDate.getDate()) ) { age--; }
 
         // Crear un objeto para representar a la persona y añadirlo al array de personas
 
-        var person = {
-
-            name: nameInput,
-            surname: surnameInput,
-            birthdate: birthdateInput,
-            age: age
-
-        };
+        var person = { name: nameInput, surname: surnameInput, birthdate: birthdateInput, age: age };
 
         people.push(person);
 
-        // Agregar la nueva fila a la tabla
+        // Seleccionar la tabla, añadir una fila nueva y añadir valores de los objetos a las celdas 
 
-        addRowToTable(person);
+        var table = document.getElementById("miTabla").getElementsByTagName('tbody')[0];
+
+        var index = table.rows.length;
+
+        var newRow = table.insertRow(index);
+        
+        var nameCell = newRow.insertCell(0);
+        var surnameCell = newRow.insertCell(1);
+        var birthdateCell = newRow.insertCell(2);
+        var ageCell = newRow.insertCell(3);
+        var deleteRowCell = newRow.insertCell(4);
+
+        nameCell.innerHTML = person.name;
+        surnameCell.innerHTML = person.surname;
+        birthdateCell.innerHTML = person.birthdate;
+        ageCell.innerHTML = person.age;
+
+        // Crear botón de eliminar
+        
+        var deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Eliminar";
+
+        deleteButton.onclick = function() { deleteRow(newRow, person); };
+
+        deleteRowCell.appendChild(deleteButton);
 
         // Limpiar los campos de entrada
 
         document.getElementById("nombre").value = "";
         document.getElementById("apellido").value = "";
         document.getElementById("fechaNacimiento").value = "";
+
     }
+
 }
 
-function addRowToTable(person) {
-
-    var table = document.getElementById("miTabla").getElementsByTagName('tbody')[0];
-
-    var newRow = table.insertRow(table.rows.length);
-    
-    var nameCell = newRow.insertCell(0);
-    var surnameCell = newRow.insertCell(1);
-    var birthdateCell = newRow.insertCell(2);
-    var ageCell = newRow.insertCell(3);
-    var actionsCell = newRow.insertCell(4);
-
-    nameCell.innerHTML = person.name;
-    surnameCell.innerHTML = person.surname;
-    birthdateCell.innerHTML = person.birthdate;
-    ageCell.innerHTML = person.age;
-
-    var deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "Eliminar";
-
-    deleteButton.onclick = function() { deleteRow(newRow, person); };
-
-    actionsCell.appendChild(deleteButton);
-    
-}
 
 function deleteRow(row, person) {
 
-    var table = document.getElementById("miTabla").getElementsByTagName('tbody')[0];
+    // Obtener la tabla y el índice de la fila a eliminar
 
+    var table = document.getElementById("miTabla").getElementsByTagName('tbody')[0];
     var index = row.rowIndex - 1;
 
-    table.deleteRow(index);
+    // Eliminar la fila de la tabla pasándole el index y el objeto del array. Si el objeto no se encuentra en el array devuelve -1.
 
+    table.deleteRow(index);
     people.splice(people.indexOf(person), 1);
 
 }
 
+
 function searchOldestPerson() {
 
-    if (people.length === 0) {  return; }
+    // Inicializar la persona de mayor edad como la primera en el array
 
     var oldestPerson = people[0];
 
-    for (var i = 1; i < people.length; i++) {
+    // Encontrar la persona de mayor edad, o la primera en orden alfabético si tienen la misma edad
 
-        if (people[i].age > oldestPerson.age || (people[i].age === oldestPerson.age && people[i].name < oldestPerson.name)) { oldestPerson = people[i]; }
-    }
+    for (var i = 1; i < people.length; i++) { if (people[i].age > oldestPerson.age || (people[i].age === oldestPerson.age && people[i].name < oldestPerson.name)) { oldestPerson = people[i]; } }
+
+    // Crear un párrafo con un mensaje para mostrar en la página
 
     var messageElement = document.createElement("p");
 
